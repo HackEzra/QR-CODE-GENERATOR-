@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+</head>
+<body bgcolor="blue">
+    <script type="text/javascript">
+        function genQR()
+        {
+            var gapi="https://charts.googleapis.com/chart?cht=qr&chs=";
+            var myimg=document.getElementById("img");
+            var mytext=document.getElementById("qrtext").value;
+            var mysize=document.getElementById("size").value;
+
+            if (mytext!=="" && mysize=="100")
+            {
+                myimg.src=gapi+"100x100"+"&chi="+mytext;
+                //https://charts.googleapis.com/chart?cht=qr&chs=100x100&chi=hello
+
+            }
+            else if(mytext!=="" && mysize=="150")
+            {
+                myimg.src=gapi+"150x150"+"&chi="+mytext; 
+
+            }
+            else if(mytext!=="" && mysize=="200")
+            {
+                myimg.src=gapi+"200x200"+"&chi="+mytext;
+            }
+            else if(mytext!=="" && mysize=="250")
+            {
+                myimg.src=gapi+"250x250"+"&chi="+mytext;
+            }
+            else if(mytext!=="" && mysize=="300")
+            {
+                myimg.src=gapi+"300x300"+"&chi="+mytext;
+            }
+            else
+            {
+                alert("Please enter text");
+            }
+
+        }
+    </script>
+    <div class="grid"> 
+        <h2 align="center">QR code generator</h2>
+        <center>
+            <img src="" id="img"
+        </center>
+        <br><br>
+        <select id="size">
+            <option value="100">100x100</option>
+            <option value="150">150x150</option>
+            <option value="200">200x200</option>
+            <option value="250" selected>250x250</option>
+            <option value="300">300x300</option>
+        </select>
+        <br><br>
+        <textarea placeholder="Enter your text" id="qrtext"></textarea>
+        <br><br>
+        <input type="submit" value="Generate" onclick="genQR()"
+        <br><br>
+        <p>Created by Ezra | 28/1/2022 </p>
+    </div>
+</body>
+</html>
